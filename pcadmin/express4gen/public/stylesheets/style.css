@@ -1,0 +1,58 @@
+#body {
+  width:3400px;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+dl{
+overflow : hidden;
+margin: 0 0 0 0;
+padding: 0;
+border: 2px solid #ddd;
+line-height: 2.0;
+height:30px;
+width:3280px;
+}
+
+dd{
+  display: block;
+  float: left;
+  border-right: 3px solid #ddd;
+  margin-left: 0;
+  line-height: 2.0;
+  height:30px;
+}
+
+.tag {
+  text-align: center;
+}
+
+input{
+margin: 0;
+padding: 0;
+height: 26px;
+
+}
+
+/*edit.jade*/
+
+#title2{
+margin: 40px 300px 30px;
+font-weight: 700;
+}
+
+#subtitle{
+margin: 40px 350px 40px;
+font-size: 20px;
+font-weight: 600;
+}
+
+#btn .btn-primary {
+padding: 24px 12px;
+margin: 0 5px;  
+border-radius: 0;
+}

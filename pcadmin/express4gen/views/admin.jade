@@ -1,0 +1,10 @@
+extends administration
+
+block content
+  h1#title= title
+  form#form1(method="GET", action='/admin/edit')
+    input(type='submit' value='新規登録' style='margin: 10px 20px 0' class="btn btn-info")
+  hr
+  p#msg
+  script(src ='/admin.js')
+

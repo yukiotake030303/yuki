@@ -1,0 +1,104 @@
+extends administration2
+
+block content
+  h1#title2= title
+  span#divadd
+    P#subtitle= subtitle
+  form#form(method="post", action='/admin/add', class="form-horizontal", role="form", onsubmit="return false;")
+    div(class="form-group dv")
+      label(for="newpcname", class="col-xs-4 control-label") PC名
+      div(class="col-xs-3")
+        input(type="text", class="form-control", placeholder="例 : pc10-000", id='newpcname', name='newpcname')
+    div(class="form-group")
+      label(for="newadmd", class="col-xs-4 control-label") 管理部門
+      div(class="col-xs-3")
+        select(name='newadmd', id='newadmd', class="form-control")
+          option(value='マーケティングセクション') マーケティングセクション
+          option(value='スタディタウン') スタディタウン
+          option(value='営業本部') 営業本部
+          option(value='コンサルティングセクション') コンサルティングセクション
+          option(value='プランニング＆サービスセクション') プランニング＆サービスセクション
+          option(value='テクニカルセクション') テクニカルセクション
+          option(value='管理本部') 管理本部
+          option(value='役員') 役員
+          option(value='監査役') 監査役
+    div(class="form-group") 
+      label(for='newmavuf', class="col-xs-4 control-label") メーカー
+      div(class="col-xs-3")
+        input(type='text', class="form-control", placeholder="例 : ＤＥＬＬ", name='newmavuf', id='newmavuf')
+    div(class="form-group")
+      label(for='newmodels', class="col-xs-4 control-label") 機種
+      div(class="col-xs-3")
+        input(type='text',  class="form-control", placeholder="例 : Latitude  E5510", name='newmodels', id='newmodels')
+    div(class="form-group")
+      label(for='newpctype', class="col-xs-4 control-label") PC型
+      div(class="col-xs-3")
+        div(class="radio")
+          label(class="radio-line")
+            input(type='radio', name="newpctype", value="D", id="newpctype1", style="margin-top : 0" checked)
+            |D
+          label(class="radio-line")
+            input(type='radio', name="newpctype", value="N", id="newpctype2" style="margin-top : 0")
+            |N
+    div(class="form-group")
+      label(for='newos', class="col-xs-4 control-label") OS詳細
+      div(class="col-xs-3")
+        input(type='text', class="form-control", placeholder="例 : Windows 7 Professional (Build 7601) SP 1", name='newos', id='newos')
+    div(class="form-group")
+      label(for='newman', class="col-xs-4 control-label") 常時使用者
+      div(class="col-xs-3")
+        input(type='text',  class="form-control", placeholder="例 : 大竹", name='newman', id='newman')
+    div(class="form-group")
+      label(for='newyouto', class="col-xs-4 control-label") 主要途
+      div(class="col-xs-3")
+        input(type='text', class="form-control", placeholder="例 : 撮影室用", name='newyouto', id='newyouto')
+    div(class="form-group")
+      label(for='newlan', class="col-xs-4 control-label") 無線LAN
+      div(class="col-xs-3")
+        div(class="radio")
+          label(class="radio-line")
+            input(type='radio', name="newlan", value="〇", id="newlan1" style="margin-top : 0" checked)
+            |〇
+          label(class="radio-line" style="vertical-align:middle")
+            input(type="radio", name="newlan", value="×", id="newlan2" style="margin-top : 0")
+            |✕											
+          label(class="radio-line")
+            input(type="radio", name="newlan", value="△", id="newlan3" style="margin-top : 0")
+            |△
+    div(class="form-group")
+      label(for='newrmac', class="col-xs-4 control-label") 登録MAC
+      div(class="col-xs-3")
+        input(type='text', class="form-control", placeholder="例 : AC:81:12:72:11:47", name='newrmac', id='newrmac')
+    div(class="form-group")
+      label(for='newvirus', class="col-xs-4 control-label") アンチウイルス
+      div(class="col-xs-3")
+        div(class="radio")
+          label(class="radio-line")
+            input(type='radio', name="newvirus", value="〇", id="newvirus1" style="margin-top : 0" checked)
+            |〇
+          label(class="radio-line")   
+            input(type="radio", name="newvirus", value="MSE", id="newvirus2" style="margin-top : 0")
+            |MSE
+    div(class="form-group")
+      label(for='newspbuy', class="col-xs-4 control-label") 追加ソフト
+      div(class="col-xs-3")
+        input(type='text', class="form-control", placeholder="例 : Office 2010 Business", name='newspbuy', id='newspbuy')
+    div(class="form-group")
+      label(for='newmaps', class="col-xs-4 control-label") Microsoft Action Pack Subscription
+      div(class="col-xs-3")
+        input(type='text', class="form-control", placeholder="例 : Visio pro 2010", name='newmaps', id='newmaps')
+    div(class="form-group")
+      label(for='newother', class="col-xs-4  control-label") その他 
+      div(class="col-xs-3")
+        input(type='text', class="form-control", placeholder="例 : 元インターン用", name='newother', id='newother')
+    div(class="form-group")
+      label(for="newbuydate", class="col-xs-4 control-label") 購入時期
+      div(class="col-xs-3")
+        input(type='text', class="form-control datepicker", placeholder="例 : 2015/5/28", name="newbuydate" ,id="newbuydate")
+    div(class="form-group")
+      label(class="col-xs-5 control-label")
+      div(class="col-xs-3" id="btn")
+        input(type="submit",class="col-xs-3 btn btn-info", value="登録" style="margin-left: 20px")
+        input(type="submit", class="col-xs-3 btn btn-info",value="戻る" onclick="location.href='http://localhost:3000/admin'")
+  script(src ='/add.js')
+
