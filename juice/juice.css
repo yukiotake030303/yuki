@@ -1,0 +1,54 @@
+#div{
+  width: 680px;
+  margin: 0 0 0 0;
+  border: 2px solid #ddd;
+  background-image: url("dora.png");
+  background-color: red;
+  background-repeat: no-repeat;
+  background-position : 10px 350px;
+
+}
+
+#dl{
+width: 536px;
+overflow : hidden;
+margin: 40px 80px 0 80px;
+padding: 0;
+border: 2px solid #ddd;
+line-height: 1.0;
+}
+
+#dl_{
+width: 536px;
+overflow : hidden;
+margin: 20px 80px 0 80px;
+padding: 0;
+border: 2px solid #ddd;
+line-height: 1.0;
+}
+
+
+dd {
+  float: left;
+  border-right: 3px solid #ddd;
+  margin-left: 0
+}
+
+.ichigo {
+  width: 122px;
+  height: 122px;
+}
+
+.p{
+
+ margin-left: 500px;	
+}
+
+#dv{
+  background-color: white;
+  width: 350px;
+  height: 150px;
+  margin: 150px 80px 10px 200px;
+  border: 2px solid #ddd;
+  border-radius: 0px 0px 200px 200px;
+}

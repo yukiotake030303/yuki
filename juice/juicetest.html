@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf8">
+   <link rel="stylesheet" href="juice.css">
+</head>
+<body id="body">
+<article>
+    <div id="div"></div>
+</article>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+  $(document).ready(function(){
+
+    var msg = '<dl id="dl"></dl>';
+        msg += '<dl id="dl_"></dl>';
+        msg += '<p class="p"><input id="sum" type="text" value="0"><br><button class="enter" value="1000">1000</button><button class="enter" value="2000">2000</button><br>';
+        msg += '<button class="enter" value="500">500</button><button class="enter" value="100">100</button><button class="enter" value="50">50</button><button class="enter" value="10">10</button></p>';
+        msg += '<div id="dv"></div>';
+  idを見て分かるように
+    $("#div").html(msg);
+document ready は　ここまで
+    //
+    ランダムにする値段と個数を設定i //new arrray を使わない　下と同じ
+    var onoono = new Array(160,"150","1200","250","180","200","300","100");
+    var kakukaku = new Array("10","8","12","11","14","8","12","11");
+     
+     同じ処理は一つ
+    var price = onoono.sort(function() {
+      return Math.random() - .5;
+    });
+
+    var number = kakukaku.sort(function() {
+      return Math.random() - .5; 
+    });
+
+    //商品の情報をオブジェクトに格納
+    var result = [ {name: "melon", image: "melon.jpeg", price: price[0], number: number[0]},{name: "orange", image: "org.png", price: price[1], number: number[1]},{name: "tea", image: "tea.jpeg", price: price[2], number: number[2]},{name: "cola", image: "cola.png", price: price[3], number: number[3]} , {name: "aceri", image: "aceri.gif", price: price[4], number: number[4]},{name: "namabeer", image: "namabeer.jpg", price: price[5], number: number[5]},{name: "ringo", image: "ringo.jpg", price: price[6], number: number[6]},{name: "coffee", image: "coffee.jpg", price: price[7], number: number[7]}];
+
+    var data = result.sort(function() {
+      return Math.random() - .5;
+    });
+
+    //表示
+    for文で回す 数字は書いちゃいけない
+    var dl = document.getElementById("dl");
+    var msg ='<dd><img src='+data[0].image+' class="ichigo"><br><button id="aa" class="buy" value="0" disabled>'+data[0].price+'</button></dd>';
+        msg += '<dd><img src='+data[1].image+' class="ichigo"><br><button id="bb" class="buy" value="1"disabled >'+data[1].price+'</button></dd>';
+        msg += '<dd><img src='+data[2].image+' class="ichigo"><br><button id="cc" class="buy" value="2" disabled>'+data[2].price+'</button></dd>';
+        msg += '<dd><img src='+data[3].image+' class="ichigo"><br><button id="dd" class="buy" value="3" disabled>'+data[3].price+'</button></dd>';
+    $(dl).append(msg);
+    var dl2 = document.getElementById("dl_");
+    var msg ='<dd><img src='+data[4].image+' class="ichigo"><br><button class="buy" value="4" disabled>'+data[4].price+'</button></dd>';
+        msg += '<dd><img src='+data[5].image+' class="ichigo"><br><button class="buy" value="5" disabled>'+data[5].price+'</button></dd>';
+        msg += '<dd><img src='+data[6].image+' class="ichigo"><br><button class="buy" value="6" disabled>'+data[6].price+'</button></dd>';
+        msg += '<dd><img src='+data[7].image+' class="ichigo"><br><button class="buy" value="7" disabled>'+data[7].price+'</button></dd>';
+    $(dl2).append(msg);
+
+    var sum = 0　;    //合計金額
+    var cnt = 1;    0   //1000円枚数カウンター
+    var cnta = 1;      //2000円枚数カウンター
+    var timerid;       //setTimeoutの戻り値
+
+    //おつり関数
+    var change = function(){
+      いらない
+      $(".buy").prop("disabled", true);
+      sum 変数のなかなんだからsum変数使う
+      $("#sum").val("0");
+    };
+
+    //お金を投入するところの処理
+    $(".enter").click(function () {
+      value使う
+      var tx = $(this).text(); 変数名
+      var text = tx * 1;
+      var sen1000 = 1000 ;
+      var sen2000 = 2000 ;
+  
+      if( sum + text < 4001){
+        if(text == sen1000){
+          var i = cnt++; cntをそのまま使え　　+1 = ++cnt
+          if (i < 4){  
+            sum +=text;
+          }
+        } else if(text == sen2000){
+          var i = cnta++;
+          if (i < 3){ 
+            sum +=text;
+          }
+        } else {
+          sum +=text;
+        }
+        $("#sum").val(sum);
+      }
+
+      //合計金額が最低金額よりも上になるならsetTimeout中止
+      {
+        clearTimeout(timerid);
+      }
+ 
+      for(i = 0; i < data.length; i++){ //items
+        if( sum > data[i].price){
+          $(".buy").eq(i).prop("disabled", false);
+        }
+      };
+    });
+
+  
+    //買う時の処理
+    $(".buy").click(function () {
+      var juiceda = $(this).text();
+      var juice = juiceda * 1; 
+      var value = $(this).val();
+  
+      data[value].number = data[value].number - 1;
+      numberid = data[value].number;
+   
+      if(numberid < 1){  ==0 
+        $(this).prop("disabled", true);
+      }
+      else{
+        sum -=juice;
+        $("#sum").val(sum);
+      }
+
+      //最低金額100円より下だったら５秒後におつり関数
+      if(sum < 100){
+        timerid = setTimeout(change, 5000);
+      }
+    
+      for(i = 0; i < data.length; i++){
+        if ( sum < data[i].price){ 今いくら入ってるか確認する関数 似たような処理はまとめる
+          $(".buy").eq(i).prop("disabled", true);
+        }
+      };
+    });
+  });
+</script>
+</body>
+</html>
