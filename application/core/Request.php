@@ -55,7 +55,6 @@ class Request
     public function getBaseUrl()
     {
         $script_name = $_SERVER['SCRIPT_NAME'];
-
         $request_uri = $this->getRequestUri();
 
         if (0 === strpos($request_uri, $script_name)) {

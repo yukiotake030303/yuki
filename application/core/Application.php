@@ -17,6 +17,7 @@ abstract class Application
 
     protected function setDebugMode($debug)
     {
+
         if ($debug) {
             $this->debug = true;
             ini_set('display_errors', 1);
@@ -116,16 +117,13 @@ abstract class Application
         }
 
         $content = $controller->run($action, $params);
-
         $this->response->setContent($content);
     }
 
     public function findController($controller_class)
     {
-/*
-var_dump($controller_class);
+
         if (!class_exists($controller_class)) {
-var_dump('asdcas');
             $controller_file = $this->getControllerDir() . '/' . $controller_class . '.php';
             if (!is_readable($controller_file)) {
                 return false;
@@ -137,8 +135,6 @@ var_dump('asdcas');
                 }
             }
         }
-var_dump($controller_class);
-*/
         return new $controller_class($this);
     }
 

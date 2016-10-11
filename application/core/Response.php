@@ -14,6 +14,7 @@ class Response
         foreach ($this->http_header as $key => $value) {
             header($name . ':' > $value);
         }
+        echo $this->content;
     }
 
     public function setContent($content)

@@ -22,8 +22,8 @@ class Router
                 }
                 $tokens[$i] = $token;
             }
-
             $pattern = '/' . implode('/', $tokens);
+
             $routes[$pattern] = $params;
         }
 

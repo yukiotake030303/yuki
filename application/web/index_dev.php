@@ -1,7 +1,8 @@
 <?php
 
 require '../bootstrap.php';
-require '../Controller/MiniBlogApplication.php';
+require '../MiniBlogApplication.php';
+require '../controllers/AccountController.php';
 
 $app = new MiniBlogApplication(true);
 $app->run();

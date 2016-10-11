@@ -64,7 +64,7 @@ class DbManager
 
         return $this->repositories[$repository_name];
     }
-
+/*
     public function __destruct()
     {
         foreach ($this->repositories as $repository) {
@@ -75,4 +75,5 @@ class DbManager
             unset($con);
         }
     }
+*/
 }

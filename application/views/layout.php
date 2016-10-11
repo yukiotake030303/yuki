@@ -6,7 +6,7 @@
 </head>
 <body>
     <div id="header">
-        <h1><a href="<?php echo $base_url"; ?>/">MINI BLOG</a></h1>
+        <h1><a href="<?php echo $base_url; ?>/">MINI BLOG</a></h1>
     </div>
 
     <div id="main">
