@@ -78,6 +78,7 @@ class Request
         $path_info = (string)substr($request_uri, strlen($base_url));
 
         return $path_info;
+
     }
 
 }

@@ -27,7 +27,7 @@ abstract class DbRepository
         return $this->execute($sql, $params)->fetch(PDO::FETCH_ASSOC);
     }
 
-    publuc function fetchAll($sql, $params = array())
+    public function fetchAll($sql, $params = array())
     {
         return $this->execute($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
